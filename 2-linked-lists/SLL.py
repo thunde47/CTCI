@@ -73,5 +73,6 @@ class SLL(object):
       current=current.get_pointer()  
 
   def delete_node(self, node):
+    print("Deleting a middle node")
     node.set_value(node.get_pointer().get_value())
     node.set_pointer(node.get_pointer().get_pointer())
