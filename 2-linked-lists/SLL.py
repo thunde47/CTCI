@@ -1,4 +1,5 @@
 from node import Node
+
 class SLL(object):
   head=None
   def __init__(self, head=None):
@@ -47,3 +48,30 @@ class SLL(object):
     while current:
       print(current.get_value())
       current=current.get_pointer()
+
+  def remove_dupes(self):
+    print("Deleting duplicates")
+    current=self.head
+    d={current.get_value():1}
+    while current.get_pointer(): #O(n)
+
+      if current.get_pointer().get_value() in d: #O(1)
+        current.set_pointer(current.get_pointer().get_pointer()) #O(1)
+
+      else:
+        d[current.get_pointer().get_value()]=1
+        current=current.get_pointer()
+
+  def k_to_last(self,k):
+    print("Printing from kth position to the last position")
+    current=self.head
+    i=0
+    while current: #O(n)
+      if i>=k:
+        print(current.get_value())
+      i+=1  
+      current=current.get_pointer()  
+
+  def delete_node(self, node):
+    node.set_value(node.get_pointer().get_value())
+    node.set_pointer(node.get_pointer().get_pointer())
