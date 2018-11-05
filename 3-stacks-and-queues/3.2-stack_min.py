@@ -4,6 +4,7 @@ class Stack_Min():
 		self.stack=list()
 		
 	def push(self, value):
+		#Store value alongwith minima upto that point as a tuple
 		if self.is_empty():
 			self.stack.append((value,value))
 		else:
@@ -12,10 +13,10 @@ class Stack_Min():
 			else:
 				self.stack.append((value, self.peek()[1]))
 				
-	def min(self):
+	def min(self): #Second element of tuple contains minima upto that point
 		return None if self.is_empty() else self.stack[-1][1]	
 				
-	def pop(self):
+	def pop(self): #First element of tuple contains actual value
 		return None if self.is_empty() else	self.stack.pop()[0]		
 	
 	def is_empty(self):
