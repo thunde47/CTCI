@@ -17,6 +17,15 @@ class Stack:
 		
 	def is_empty(self):
 		return self.size()==0
+	
+	#Find minima in an existing stack	
+	def stack_min(self):
+		minima=self.peek()		
+		while self.peek()!=None: #O(N) worst case
+			if self.peek()<minima:
+				minima=self.peek()
+			self.pop()
+		return minima		
 		
 if __name__=="__main__":
 	s=Stack()
