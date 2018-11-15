@@ -61,13 +61,33 @@ class Graph:
 			if right!=None: print(right)
 		except:
 			pass	
-			
+
+#Root->Left->Right			
 def pre_order_traversal(node):
+	
 	print(node.value)	
 	if node.left!=None:
 		pre_order_traversal(node.left)
 	if node.right!=None:
 		pre_order_traversal(node.right)
+
+#Left->Right->Root
+def post_order_traversal(node):
+	
+	if node.left!=None:
+		post_order_traversal(node.left)
+	if node.right!=None:
+		post_order_traversal(node.right)
+	print(node.value)
+
+#Left->Root->Right
+def in_order_traversal(node):
+	
+	if node.left!=None:
+		in_order_traversal(node.left)
+	print(node.value)
+	if node.right!=None:
+		in_order_traversal(node.right)		
 		
 
 if __name__=="__main__":
@@ -78,13 +98,18 @@ if __name__=="__main__":
 	print(g.is_tree())
 	print(g.is_binary_tree())
 	
-	root=BinaryNode(8)
-	root.left=BinaryNode(4)
-	root.right=BinaryNode(10)
-	root.left.left=BinaryNode(2)
-	root.left.right=BinaryNode(6)
+	root=BinaryNode(1)
+	root.left=BinaryNode(2)
+	root.right=BinaryNode(3)
+	root.left.left=BinaryNode(4)
+	root.left.right=BinaryNode(5)
 	root.right.right=BinaryNode(20)
 
+	print("Pre order traversal")
 	pre_order_traversal(root)
+	print("Post order traversal")
+	post_order_traversal(root)
+	print("In order traversal")
+	in_order_traversal(root)
 	
 	
