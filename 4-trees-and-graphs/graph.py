@@ -29,17 +29,28 @@ class Graph:
 					if connection in visited:
 						return False
 			else: return False			
-		return "Graph is a binary tree (at most two child nodes)"		
-				
+		return "Graph is a binary tree (at most two child nodes)"
 		
-	def traversal(self, order="in"):
+	def is_binary_search_tree(self):
 		pass
 		
+	#Root-->Left-->Right	
+	def pre_order_traversal(self, root): 
+		print(root)
+		try:
+			left=self.pre_order_traversal(self.graph[root][0])
+			if left!=None: print(left)
+			right=self.pre_order_traversal(self.graph[root][1])
+			if right!=None: print(right)
+		except:
+			pass	
+		
 if __name__=="__main__":
-	graph={"a":["b","c"]}
-	g=Graph(graph)
-	g.add_node("b",["d","e"])
-	g.add_node("c",["f","g","h"])
+	g=Graph()
+	g.add_node(8,[4,10])
+	g.add_node(4,[2,6])
+	g.add_node(10,[12, 20])
 	print(g.is_tree())
 	print(g.is_binary_tree())
+	g.pre_order_traversal(8)
 	g.show()
