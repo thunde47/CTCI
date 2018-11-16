@@ -1,6 +1,7 @@
 from stack import Stack
 from queue import Queue
 
+visited=list()
 class BinaryNode:
 	def __init__(self, value):
 		self.value=value
@@ -46,7 +47,32 @@ class Graph:
 				node.right=BinaryNode(connections[1])
 			except:pass
 			print(node.value, node.left.value, node.right.value)
-			
+	
+	def is_route(self, start, end):
+		node=start
+		while node:
+			print(node, self.graph)	
+			if len(self.graph[start])==0:
+				return False
+			if node==end:
+				return True
+			node_t=self.graph[node][0]
+			if node_t==end:
+				return True
+			if node_t==start:
+				del self.graph[node][0]
+				node_t=start
+
+			if node_t in self.graph:
+				node=node_t
+			else:
+				del self.graph[node][0]	
+				
+			if len(self.graph[node])==0:
+				self.graph.pop(node)
+				node=start					
+							
+		
 			
 	def is_binary_search_tree(self):
 		pass
