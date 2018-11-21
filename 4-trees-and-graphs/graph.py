@@ -61,7 +61,7 @@ class Graph:
 				return True
 			if node_t==start:
 				del self.graph[node][0]
-				node_t=start
+				node_t=node
 
 			if node_t in self.graph:
 				node=node_t
@@ -70,9 +70,7 @@ class Graph:
 				
 			if len(self.graph[node])==0:
 				self.graph.pop(node)
-				node=start					
-							
-		
+				node=start			
 			
 	def is_binary_search_tree(self):
 		pass
