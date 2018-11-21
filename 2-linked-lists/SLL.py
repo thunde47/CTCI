@@ -76,3 +76,39 @@ class SLL(object):
     print("Deleting a middle node")
     node.set_value(node.get_pointer().get_value())
     node.set_pointer(node.get_pointer().get_pointer())
+    
+  def partition(self, x): #O(N)
+  	print("Partitioning around ", x)
+  	current=self.head
+  	left_side=SLL()
+  	right_side=SLL()
+  	while current: #O(N)
+  		
+  		if current.get_value()>=x:
+  			right_side.insert(current.get_value()) #Insertion at end O(1)
+  			
+  		else:
+  			left_side.insert(current.get_value())	#Insertion at end O(1)
+  		current=current.get_pointer()
+ 
+  	current=left_side.head
+  	if current==None:
+  		self.head=right_side.head
+  	else:
+	  	while current.get_pointer(): #Worst O(N)
+	  		current=current.get_pointer()
+	  	current.set_pointer(right_side.head)
+	  	self.head=left_side.head #O(1) because only pointer is re-directed
+  		
+  		
+  			
+	
+  			
+  			
+  			
+  			
+  			
+  			
+  			
+  			
+	  
