@@ -11,5 +11,5 @@ def steps(n): #O(3^N)
 	if n>=3:
 		return steps(n-1) + steps(n-2) + steps(n-3)
 	
-n=0
+n=4
 print(steps(n))
