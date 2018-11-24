@@ -113,7 +113,26 @@ def in_order_traversal(node):
 	if node.right!=None:
 		in_order_traversal(node.right)		
 		
-
+def BFS(node):
+	queue=Queue()
+	queue.add(node)
+	visited=set()
+	visited.add(node)
+	
+	while not queue.is_empty():
+		r=queue.remove()
+		print(r.value)
+		
+		if r.left!=None:
+			if r.left not in visited:
+				queue.add(r.left)
+				visited.add(r.left)
+		if r.right!=None:
+			if r.right not in visited:
+				queue.add(r.right)
+				visited.add(r.right)
+				
+				
 if __name__=="__main__":
 	g=Graph()
 	g.add_node(8,[4,10])
@@ -135,5 +154,7 @@ if __name__=="__main__":
 	post_order_traversal(root)
 	print("In order traversal")
 	in_order_traversal(root)
+	print("Breadth first traversal")
+	BFS(root)
 	
 	
