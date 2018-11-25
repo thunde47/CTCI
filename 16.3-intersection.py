@@ -13,7 +13,7 @@ def intersection(a_point_1, a_point_2, b_point_1, b_point_2):
 		b_m=(b_y_2-b_y_1)/(b_x_2-b_x_1)
 	except:
 		b_m="INF"
-	print(a_m, b_m)
+	#print(a_m, b_m)
 	
 	if a_m==b_m:
 		return "No intersection"
@@ -29,5 +29,5 @@ def intersection(a_point_1, a_point_2, b_point_1, b_point_2):
 	return (xi,yi)
 	
 if __name__=="__main__":
-	print(intersection((0,1),(2,2),(0,2),(2,0)))
+	print(intersection((0,1),(0,2),(5,2),(5,0)))
 		
