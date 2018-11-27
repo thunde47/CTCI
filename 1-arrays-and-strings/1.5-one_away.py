@@ -7,7 +7,7 @@ def change(A,B):
     return False
   once_count=0
   j=0
-  for i in range(0, large_length):
+  for i in range(0, large_length): #O(N)
     if once_count>1:
       return False
     try:
