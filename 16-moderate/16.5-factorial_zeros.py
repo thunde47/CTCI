@@ -1,7 +1,8 @@
 def factorial_zeros(n):
-	#print(factorial(n))
+	print(factorial(n))
+	
 	zeros=0
-	for i in range(1, n+1): #O(n)
+	for i in range(5, n+1, 5): #O(n/5)
 		sqr=0
 		j=i
 		while j%5==0:
