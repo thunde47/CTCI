@@ -1,4 +1,4 @@
-def missing_number(A,n): #O(NlogN)
+def missing_number(A,n): #O(8N)
 	expected_number=['0']*8
 
 	for i in range(0,n+1): #O(N)
@@ -10,7 +10,7 @@ def missing_number(A,n): #O(NlogN)
 			return bin_expected_number
 
 		carry, expected_number[-1]=('0','1') if A[i][-1]=='0' else ('1','0')		
-		for j in range(len(A[i])-2,-1,-1): #O(logN)
+		for j in range(len(A[i])-2,-1,-1): #O(8)
 			if A[i][j]=='0' and carry=='1':
 				expected_number[j]='1'
 				carry='0'
