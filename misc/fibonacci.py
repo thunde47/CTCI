@@ -20,22 +20,26 @@ def iter_fibonacci(n):
 		a,b=b,f		
 	return f
 	
+cache=dict()	
 def cache_fibonacci(n):
-	cache=[-1]*(n)
-	return helper_fibonacci(n, cache)
+	return helper_fibonacci(n)
 
-def helper_fibonacci(n, cache):
+def helper_fibonacci(n):
+	if n in cache:
+		#Cache already exists
+		return cache[n]
 	if n==1:
-		return 0
-	if n==2:
-		return 1
-	if cache[n-1]==-1: #Cache not set
-		a=helper_fibonacci(n-1, cache)
-		b=helper_fibonacci(n-2, cache)
-		cache[n-1]=a+b
-	#Cache already contains the desired value
-	return cache[n-1]
-		
+		value=0
+	elif n==2:
+		value=1
+	else:
+		#Cache not set
+		a=helper_fibonacci(n-1)
+		b=helper_fibonacci(n-2)
+		value=a+b
+	cache[n]=value
+	return value
+			
 	
 n=30
 t1=time.time()
