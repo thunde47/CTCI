@@ -1,4 +1,5 @@
 import time
+from functools import lru_cache
 def rec_fibonacci(n):
 	if n==1:
 		return 0
@@ -39,7 +40,17 @@ def helper_fibonacci(n):
 		value=a+b
 	cache[n]=value
 	return value
-			
+
+@lru_cache(maxsize=1024)
+def lru_cache_fibonacci(n):
+	if n==1:
+		return 0
+	if n==2:
+		return 1 
+	else:
+		a=rec_fibonacci(n-1)
+		b=rec_fibonacci(n-2)
+		return a+b				
 	
 n=30
 t1=time.time()
@@ -51,3 +62,6 @@ print("Iteration time=", time.time()-t1)
 t1=time.time()
 print(cache_fibonacci(n))
 print("Cached-recursive time=", time.time()-t1)
+t1=time.time()
+print(lru_cache_fibonacci(n))
+print("LRU Cached-recursive time=", time.time()-t1)
