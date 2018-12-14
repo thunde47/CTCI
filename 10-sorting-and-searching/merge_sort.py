@@ -1,3 +1,4 @@
+#Runtime is O(NlogN) in worst and average case both
 def merge_sort(A, left, right):
 	if len(A)==1: return A
 	
